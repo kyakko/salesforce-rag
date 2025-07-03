@@ -1,0 +1,20 @@
+<template>
+    <section class="window">
+        <div class="header">
+            <span>Chatbot</span>
+            <lightning-button-icon icon-name="utility:close" alternative-text="Close" onclick={close}></lightning-button-icon>
+        </div>
+        <div class="messages">
+            <template for:each={messages} for:item="msg">
+                <c-chat-message key={msg.id} message={msg}></c-chat-message>
+            </template>
+            <template if:true={loading}>
+                <div class="loading">Loading...</div>
+            </template>
+        </div>
+        <div class="input">
+            <lightning-input value={input} onchange={handleChange} onkeypress={handleKeyPress}></lightning-input>
+            <lightning-button label="Send" onclick={send}></lightning-button>
+        </div>
+    </section>
+</template>
