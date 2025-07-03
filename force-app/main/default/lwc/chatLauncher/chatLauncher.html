@@ -1,0 +1,8 @@
+<template>
+    <template if:false={open}>
+        <lightning-button-icon icon-name="utility:chat" variant="brand" alternative-text="Open Chat" onclick={toggleWindow} class="launcher"></lightning-button-icon>
+    </template>
+    <template if:true={open}>
+        <c-chat-window onclose={toggleWindow}></c-chat-window>
+    </template>
+</template>
